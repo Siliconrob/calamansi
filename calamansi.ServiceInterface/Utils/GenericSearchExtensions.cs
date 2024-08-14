@@ -12,7 +12,7 @@ public static class GenericSearchExtensions
     public static bool Search<T>(this T target, string searchTerm) where T : class, new()
     {
         var flatDict = Runner.Execute(target);
-        var dataItems = new Queue<string>(flatDict.Values);
+        var dataItems = new Queue<string>(flatDict?.Values ?? new Dictionary<string, string>().Values);
         var match = false;
         while (dataItems.Count != 0)
         {

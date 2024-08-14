@@ -26,6 +26,19 @@ public class RequestProxyTest
     }
 
     [Test]
+    public async Task OrderByTest()
+    {
+        var countries = await RequestProxy.GetCountries(cache);
+        Assert.IsNotEmpty(countries);
+        var first = countries.FirstOrDefault();
+        await TestContext.Out.WriteLineAsync(first.Name);
+        countries = countries.OrderByDynamic("cca2").ToList();
+        var firstOrdered = countries.FirstOrDefault();
+        await TestContext.Out.WriteLineAsync(firstOrdered.Name);
+    }
+    
+    
+    [Test]
     public async Task FlattenTest()
     {
         var countries = await RequestProxy.GetCountries(cache);
