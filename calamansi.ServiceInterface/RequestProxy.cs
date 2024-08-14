@@ -14,6 +14,14 @@ public static class RequestProxy
     
     public static async Task<List<Country>> GetCountriesByCode(string code, ICacheClient cache)
     {
+        if (int.TryParse(code, out var parsed))
+        {
+            if (parsed < 100)
+            {
+                code = parsed.ToString("D3");
+            }
+        }
+        
         var queryPath = $"/alpha/{code}";
         var cacheKey = $"{BaseKey}_{queryPath}";
         var results = cache?.Get<List<Country>>(cacheKey) ?? [];

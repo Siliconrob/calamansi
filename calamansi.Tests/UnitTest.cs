@@ -20,12 +20,14 @@ public class UnitTest
     public void OneTimeTearDown() => appHost.Dispose();
 
     [Test]
-    public void Can_call_MyServices()
+    public async Task Can_call_MyServices()
     {
         var service = appHost.Container.Resolve<CountriesServices>();
 
-        var response = (CountriesResponse)service.Any(new Countries { Code = "World" });
+        //var response = (CountriesResponse)service.Any(new Countries { Code = "World" });
+        
+        var response = await service.Any(new Countries { Code = "World" }) as CountriesResponse;
 
-        Assert.That(response.Result, Is.EqualTo("Hello, World!"));
+        Assert.That(response.Page, Is.EqualTo(1));
     }
 }
