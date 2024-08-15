@@ -23,11 +23,7 @@ public class UnitTest
     public async Task Can_call_MyServices()
     {
         var service = appHost.Container.Resolve<CountriesServices>();
-
-        //var response = (CountriesResponse)service.Any(new Countries { Code = "World" });
-        
-        var response = await service.Any(new Countries { Code = "World" }) as CountriesResponse;
-
+        var response = await service.Any(new Countries()) as CountriesResponse;
         Assert.That(response.Page, Is.EqualTo(1));
     }
 }

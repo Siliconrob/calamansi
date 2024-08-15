@@ -1,5 +1,6 @@
 ﻿using calamansi.ServiceInterface.Utils;
 using calamansi.ServiceModel;
+using calamansi.ServiceModel.ProxyModels;
 using ServiceStack;
 
 namespace calamansi.ServiceInterface;
@@ -8,12 +9,11 @@ public class RegionsServices : Service
 {
     public async Task<object> Any(Regions request)
     {
-        var key = string.IsNullOrWhiteSpace(request.Id) ? request.CacheKey() : request.CacheKey(request.Id.Trim());
-        var languages = Cache.Get<PagedDictionaryResponse>(key);
-        if (languages != null)
+        var sorter = new PageParams
         {
-            return languages;
-        }
+            SortBy = request.SortBy,
+            SortDesc = request.SortDesc
+        };
         var countries = await RequestProxy.GetCountries(Cache);
         if (!string.IsNullOrWhiteSpace(request.Id))
         {
@@ -24,7 +24,7 @@ public class RegionsServices : Service
                 return new ItemResponse
                 {
                     Name = search,
-                    Countries = matched.OrderByDynamic(request.SortBy, !request.SortDesc).ToList()
+                    Countries = matched.SortCountries(sorter).ToList()
                 };
             }
         }
@@ -32,16 +32,25 @@ public class RegionsServices : Service
         {
             countries = countries.SearchAll(request.Find.Trim());
         }
-        var all = DictionaryBuilder.ByRegions(countries.OrderByDynamic(request.SortBy, !request.SortDesc).ToList());
-        var (q,r) = Math.DivRem(all.Count, request.Limit);
+        
+        var all = DictionaryBuilder.ByRegions(countries)
+            .OrderBy(z => z.Key)
+            .ToDictionary(f => f.Key, f => f.Value.SortCountries(sorter));
+
+        var (q, r) = Math.DivRem(all.Count, request.Limit);
         var skip = (request.Page - 1) * request.Limit;
         var pageResults = all.Skip(skip).Take(request.Limit).ToDictionary();
-        return new PagedDictionaryResponse
+
+        return new RegionsResponse
         {
-            Items = pageResults.Values,
+            Items = pageResults.Select(z => new RegionResponseItem
+            {
+                Region = z.Key,
+                Items = z.Value
+            }).ToList(),
             ItemCount = pageResults.Count,
             Page = request.Page,
-            PageCount =  r > 0 ? q + 1 : q,
+            PageCount = r > 0 ? q + 1 : q,
             Total = all.Count
         };
     }

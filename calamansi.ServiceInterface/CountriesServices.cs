@@ -15,13 +15,14 @@ public class CountriesServices : Service
         if (!string.IsNullOrWhiteSpace(request.Find))
         {
             countries = countries.SearchAll(request.Find.Trim());
-        }        
-        return countries.GetPagedResponse(new PageParams
+        }
+        var pageReq = new PageParams
         {
             Limit = request.Limit,
             Page = request.Page,
             SortBy = request.SortBy,
             SortDesc = request.SortDesc
-        });
+        };
+        return countries.SortCountries(pageReq).GetPagedResponse(pageReq);
     }
 }

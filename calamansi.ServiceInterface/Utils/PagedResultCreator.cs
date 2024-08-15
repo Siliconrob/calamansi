@@ -5,13 +5,13 @@ namespace calamansi.ServiceInterface.Utils;
 
 public static class PagedResultCreator
 {
-    public static List<Country> Sort(this List<Country> countries, PageParams pageRequest)
+    public static List<Country> SortCountries(this List<Country> countries, PageParams pageRequest)
     {
         if (string.IsNullOrWhiteSpace(pageRequest.SortBy))
         {
             pageRequest.SortBy = "cca2";
         }
-        return countries.OrderByDynamic(pageRequest.SortBy.Trim(), !pageRequest.SortDesc).ToList();
+        return countries.OrderByDynamic(pageRequest.SortBy.Trim(), pageRequest.SortDesc).ToList();
     }
     
     public static CountriesResponse GetPagedResponse(this List<Country> items, PageParams pageRequest)
