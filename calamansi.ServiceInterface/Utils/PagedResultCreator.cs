@@ -5,24 +5,27 @@ namespace calamansi.ServiceInterface.Utils;
 
 public static class PagedResultCreator
 {
-    public static CountriesResponse GetPagedResponse(this List<Country> countries, PageParams pageRequest)
+    public static List<Country> Sort(this List<Country> countries, PageParams pageRequest)
     {
         if (string.IsNullOrWhiteSpace(pageRequest.SortBy))
         {
             pageRequest.SortBy = "cca2";
         }
-        countries = countries.OrderByDynamic(pageRequest.SortBy.Trim(), !pageRequest.SortDesc).ToList();
-        
-        var (q,r) = Math.DivRem(countries.Count, pageRequest.Limit);
+        return countries.OrderByDynamic(pageRequest.SortBy.Trim(), !pageRequest.SortDesc).ToList();
+    }
+    
+    public static CountriesResponse GetPagedResponse(this List<Country> items, PageParams pageRequest)
+    {
+        var (q,r) = Math.DivRem(items.Count, pageRequest.Limit);
         var skip = (pageRequest.Page - 1) * pageRequest.Limit;
-        var pageResults = countries.Skip(skip).Take(pageRequest.Limit).ToList();
+        var pageResults = items.Skip(skip).Take(pageRequest.Limit).ToList();
         return new CountriesResponse
         {
             Items = pageResults,
             ItemCount = pageResults.Count,
             Page = pageRequest.Page,
             PageCount =  r > 0 ? q + 1 : q,
-            Total = countries.Count
+            Total = items.Count
         };
     }
 }

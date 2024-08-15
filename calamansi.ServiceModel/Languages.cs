@@ -3,16 +3,9 @@
 namespace calamansi.ServiceModel;
 
 [Route("/api/languages/{id}")]
-public class Languages : PagedRequest, IGet, IReturn<LanguagesResponse>
+public class Languages : PagedRequest, IGet, IReturn<PagedDictionaryResponse>
 {
     public string Id { get; set; }
 }
 
-public class LanguagesResponse
-{
-    public List<LanguageItem> Items { get; set; }
-}
-
-public class LanguageItem
-{
-}
+//public class LanguagesResponse : PagedDictionaryResponse { }

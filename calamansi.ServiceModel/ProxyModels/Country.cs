@@ -15,7 +15,7 @@ public class Country
     public List<string> Capital { get; set; } = null;
     public List<string> AltSpellings { get; set; }
     public string Region { get; set; }
-    public Dictionary<string, object> Languages { get; set; } = null;
+    public Dictionary<string, object>? Languages { get; set; } = null;
     public Dictionary<string, object> Translations { get; set; }
     public List<double> Latlng { get; set; }
     public bool Landlocked { get; set; }
