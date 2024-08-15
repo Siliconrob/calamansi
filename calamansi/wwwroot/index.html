@@ -23,26 +23,6 @@
 <body>
 
 <h2><a href="/ui/Countries">Countries</a> API</h2>
-<input type="text" id="txtName">
-<div id="result"></div>
-
-<script type="module">
-import { JsonServiceClient, $1, on } from '@servicestack/client'
-import { Hello } from '/types/mjs'
-
-const client = new JsonServiceClient()
-on('#txtName', {
-    /** @param {Event} el */
-    async keyup(el) {
-        const api = await client.api(new Hello({ name:el.target.value }))
-        $1('#result').innerHTML = api.response.result
-    }
-})
-
-$1('#txtName').value = 'World'
-$1('#txtName').dispatchEvent(new KeyboardEvent('keyup'))
-</script>
-
 <div id="content" style="max-width:105ch"></div>
 
 <template id="docs">
@@ -51,6 +31,7 @@ $1('#txtName').dispatchEvent(new KeyboardEvent('keyup'))
 - [Call API](/ui/Countries)
 - [View API Details](/ui/Countries?tab=details)
 - [Browse API source code in different languages](/ui/Countries?tab=code)
+- [Swagger Docs](/swagger)    
     
 ### Using JsonServiceClient in Web Pages
 
@@ -74,20 +55,20 @@ to specify where to load **@servicestack/client** from, e.g:
 This lets us reference the **@servicestack/client** package name in our source code instead of its physical location:
     
 ```html
-&lt;input type="text" id="txtName"&gt;
+&lt;input type="button" id="pressButton"&gt;
 &lt;div id="result"&gt;&lt;/div&gt;
 ```
 
 ```html
 &lt;script type="module"&gt;
 import { JsonServiceClient, $1, on } from '@servicestack/client'
-import { Hello } from '/types/mjs'
+import { Countries } from '/types/mjs'
 
 const client = new JsonServiceClient()
-on('#txtName', {
+on('#pressButton', {
     async keyup(el) {
-        const api = await client.api(new Hello({ name:el.target.value }))
-        $1('#result').innerHTML = api.response.result
+        const api = await client.api(new Countries())
+        $1('#result').innerHTML = api.response.items
     }
 })
 &lt;/script&gt;
@@ -104,8 +85,8 @@ $ x mjs
 Then reference it instead to enable IDE static analysis when calling Typed APIs from JavaScript:
 
 ```js
-import { Hello } from '/js/dtos.mjs'
-client.api(new Hello({ name }))
+import { Countries } from '/js/dtos.mjs'
+client.api(new Countries())
 ```
     
 To also enable static analysis for **@servicestack/client**, install the dependency-free library as a dev dependency:

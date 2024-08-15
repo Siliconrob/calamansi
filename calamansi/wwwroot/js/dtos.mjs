@@ -1,5 +1,5 @@
 /* Options:
-Date: 2024-08-14 18:16:14
+Date: 2024-08-15 00:46:10
 Version: 8.30
 Tip: To override a DTO option, remove "//" prefix before updating
 BaseUrl: https://localhost:5001
@@ -118,7 +118,7 @@ export class Country {
     altSpellings;
     /** @type {string} */
     region;
-    /** @type {{ [index: string]: Object; }} */
+    /** @type {?{ [index: string]: Object; }} */
     languages;
     /** @type {{ [index: string]: Object; }} */
     translations;
@@ -151,6 +151,22 @@ export class Country {
     /** @type {CapitalInfo} */
     capitalInfo;
 }
+export class LanguageResponseItem {
+    /** @param {{language?:string,items?:Country[]}} [init] */
+    constructor(init) { Object.assign(this, init) }
+    /** @type {string} */
+    language;
+    /** @type {Country[]} */
+    items;
+}
+export class RegionResponseItem {
+    /** @param {{region?:string,items?:Country[]}} [init] */
+    constructor(init) { Object.assign(this, init) }
+    /** @type {string} */
+    region;
+    /** @type {Country[]} */
+    items;
+}
 export class CountriesResponse {
     /** @param {{items?:Country[],itemCount?:number,page?:number,pageCount?:number,total?:number}} [init] */
     constructor(init) { Object.assign(this, init) }
@@ -166,16 +182,32 @@ export class CountriesResponse {
     total;
 }
 export class LanguagesResponse {
-    /** @param {{result?:string}} [init] */
+    /** @param {{items?:LanguageResponseItem[],itemCount?:number,page?:number,pageCount?:number,total?:number}} [init] */
     constructor(init) { Object.assign(this, init) }
-    /** @type {string} */
-    result;
+    /** @type {LanguageResponseItem[]} */
+    items;
+    /** @type {number} */
+    itemCount;
+    /** @type {number} */
+    page;
+    /** @type {number} */
+    pageCount;
+    /** @type {number} */
+    total;
 }
 export class RegionsResponse {
-    /** @param {{result?:string}} [init] */
+    /** @param {{items?:RegionResponseItem[],itemCount?:number,page?:number,pageCount?:number,total?:number}} [init] */
     constructor(init) { Object.assign(this, init) }
-    /** @type {string} */
-    result;
+    /** @type {RegionResponseItem[]} */
+    items;
+    /** @type {number} */
+    itemCount;
+    /** @type {number} */
+    page;
+    /** @type {number} */
+    pageCount;
+    /** @type {number} */
+    total;
 }
 export class Countries extends PagedRequest {
     /** @param {{code?:string,limit?:number,page?:number,find?:string,sortBy?:string,sortDesc?:boolean}} [init] */

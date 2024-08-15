@@ -1,8 +1,8 @@
 # web
 
-.NET 8.0 Empty Web Template
+.NET 8.0 Web Template
 
-[![](https://raw.githubusercontent.com/ServiceStack/Assets/master/csharp-templates/web.png)](http://web.web-templates.io/)
+[![](https://raw.githubusercontent.com/ServiceStack/Assets/master/csharp-templates/web.png)](https://calamansi.onrender.com)
 
 > Browse [source code](https://github.com/NetCoreTemplates/web), view live demo [web.web-templates.io](http://web.web-templates.io) and install with [dotnet-new](https://docs.servicestack.net/dotnet-new):
 
