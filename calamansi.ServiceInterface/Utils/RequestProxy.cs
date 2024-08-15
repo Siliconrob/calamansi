@@ -1,9 +1,8 @@
-﻿using calamansi.ServiceModel;
-using calamansi.ServiceModel.ProxyModels;
+﻿using calamansi.ServiceModel.ProxyModels;
 using ServiceStack;
 using ServiceStack.Caching;
 
-namespace calamansi.ServiceInterface;
+namespace calamansi.ServiceInterface.Utils;
 
 public static class RequestProxy
 {

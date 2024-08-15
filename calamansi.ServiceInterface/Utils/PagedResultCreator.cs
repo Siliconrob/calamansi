@@ -1,8 +1,7 @@
-﻿using calamansi.ServiceInterface.Utils;
-using calamansi.ServiceModel;
+﻿using calamansi.ServiceModel;
 using calamansi.ServiceModel.ProxyModels;
 
-namespace calamansi.ServiceInterface;
+namespace calamansi.ServiceInterface.Utils;
 
 public static class PagedResultCreator
 {

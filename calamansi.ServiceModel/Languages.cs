@@ -10,5 +10,9 @@ public class Languages : PagedRequest, IGet, IReturn<LanguagesResponse>
 
 public class LanguagesResponse
 {
-    public required string Result { get; set; }
+    public List<LanguageItem> Items { get; set; }
+}
+
+public class LanguageItem
+{
 }
