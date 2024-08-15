@@ -31,6 +31,14 @@ builder.Services.AddRateLimiter(options =>
     };
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("All", policyBuilder =>
+    {
+        policyBuilder.WithOrigins(["*"]).AllowAnyMethod();
+    });
+});
+
 var services = builder.Services;
 
 services.AddServiceStack(typeof(CountriesServices).Assembly);
@@ -44,6 +52,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseCors();
 
 app.UseHttpsRedirection();
 
