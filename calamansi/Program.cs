@@ -31,13 +31,13 @@ builder.Services.AddRateLimiter(options =>
     };
 });
 
-// builder.Services.AddCors(options =>
-// {
-//     options.AddPolicy("All", policyBuilder =>
-//     {
-//         policyBuilder.WithOrigins(["*"]).AllowAnyMethod();
-//     });
-// });
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policyBuilder =>
+    {
+        policyBuilder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod();
+    });
+});
 
 var services = builder.Services;
 
@@ -53,10 +53,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseCors(policy => policy
-    .AllowAnyOrigin()
-    .AllowAnyMethod()
-    .AllowAnyHeader()); 
+app.UseCors(); 
 
 app.UseHttpsRedirection();
 
