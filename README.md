@@ -10,15 +10,19 @@ The following components are on the free hosted tier level of [Render](https://r
 
 ## Demo use
 
+- Default interactive [ServiceStack Project UI](https://calamansi.onrender.com/ui) provides numerous options for experimentation.  I suggest experimenting with it
+
+![servicestack_ui](https://github.com/user-attachments/assets/03e3b4e7-06c8-4aab-8c64-bc9d0bad1e7f)
+ 
+- Also an [OpenAPI](https://calamansi.onrender.com/swagger/index.html) reference as well.  Compare and contrast with the above ServiceStack one
+
+![servicestack_swagger](https://github.com/user-attachments/assets/686b1f66-2229-4022-826f-9c3a30a37028)
 
 ## Flow
 
 ![thisdotco-netapi drawio](https://github.com/user-attachments/assets/7bdb9ef3-f773-4521-a211-1bbbe80a159b)
 
 This API was built on top of ServiceStack which is my favorite framework when working with .NET.  It is everything that .NET Core should be and is built for maximum productivity with all the correct options builtin to get you off and running along with being setup for long term success i.e. batteries included.
-
-- Default interactive [ServiceStack Project UI](https://calamansi.onrender.com/ui) provides numerous options for experimentation.  I suggest experimenting with it
-- Also an [OpenAPI](https://calamansi.onrender.com/swagger/index.html) reference as well.  Compare and contrast with the above ServiceStack one
 
 ## Design
 
