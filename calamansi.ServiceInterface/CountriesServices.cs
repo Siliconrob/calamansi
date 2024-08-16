@@ -20,8 +20,8 @@ public class CountriesServices : Service
         {
             Limit = request.Limit,
             Page = request.Page,
-            SortBy = request.SortBy,
-            SortDesc = request.SortDesc
+            SortBy = request.Sort_By,
+            SortDesc = request.Sort_Desc
         };
         return countries.SortCountries(pageReq).GetPagedResponse(pageReq);
     }

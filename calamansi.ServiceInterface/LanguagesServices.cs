@@ -10,8 +10,8 @@ public class LanguagesServices : Service
     {
         var sorter = new PageParams
         {
-            SortBy = request.SortBy,
-            SortDesc = request.SortDesc
+            SortBy = request.Sort_By,
+            SortDesc = request.Sort_Desc
         };
         var countries = await RequestProxy.GetCountries(Cache);
         if (!string.IsNullOrWhiteSpace(request.Id))

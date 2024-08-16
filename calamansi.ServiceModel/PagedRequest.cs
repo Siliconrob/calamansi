@@ -35,12 +35,13 @@ public class SortedRequest
         DataType = "string",
         IsRequired = false
     )]
-    public string SortBy { get; set; } = "";
+    [QueryDataField(Field = "sort_by")]
+    public string Sort_By { get; set; } = "";
     [ApiMember(Name = "sort_desc",
         Description = "Sort results descending: default is (true)",
         ParameterType = "query",
         DataType = "boolean",
         IsRequired = false
     )]
-    public bool SortDesc { get; set; } = true;
+    public bool Sort_Desc { get; set; } = true;
 }
