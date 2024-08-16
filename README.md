@@ -3,10 +3,22 @@ Welcome to this sample application API built in [.NET 8.0](https://dotnet.micros
 There are three components to this system (microservish)
 - React UI [live](https://thisdotco.onrender.com) [source](https://github.com/Siliconrob/thisdotco)
 
-The following components are on the free hosted tier level of [Render](https://render.com/) and are shutdown when not in use.  Accessing each component from a shutdown state requires it to spin back up and this can delay requests for a minute or so.
+The following components are on the **free hosted tier level** of [Render](https://render.com/) and are shutdown when not in use.  Accessing each component from a shutdown state requires it to spin back up and this can **delay requests for a minute or so**.
 
-- .NET API built with [ServiceStack](https://github.com/ServiceStack/ServiceStack) [live](https://calamansi.onrender.com) 
-- FastAPI API built with [FastAPI](https://fastapi.tiangolo.com/) [live](https://restful-with-more-fastapi.onrender.com)
+- [.NET API](https://calamansi.onrender.com) - [code](https://github.com/Siliconrob/calamansi) built with [ServiceStack](https://github.com/ServiceStack/ServiceStack)
+- [FastAPI API](https://restful-with-more-fastapi.onrender.com) - [code](https://github.com/Siliconrob/render-native) built with [FastAPI](https://fastapi.tiangolo.com/)
+
+## Proud of
+
+**Generic sorting of strongly typed fields by any root object property**
+
+## Highlight
+
+ServiceStack UI keeps getting better and better, multiple programming language support right out of the box
+
+## Improvement
+
+Leverage more of ServiceStack with Sqlite storage of data
 
 ## Demo use
 
