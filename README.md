@@ -52,7 +52,7 @@ This project was built using the default NET 8 ServiceStack template.  Download 
 
 ## Render Deployment
 
-- Signup for a free [Render](https://dashboard.render.com/register) account.  You won't regrest it :)
+- Signup for a free [Render](https://dashboard.render.com/register) account.  You won't regret it :)
 - Connect your [GitHub](https://docs.render.com/github) account
 - Choose the `Web Services` [option](https://docs.render.com/web-services)
  - Setup a name
