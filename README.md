@@ -57,4 +57,5 @@ This project was built using the default NET 8 ServiceStack template.  Download 
 - Choose the `Web Services` [option](https://docs.render.com/web-services)
  - Setup a name
  - Use the defaults and choose the `Dockerfile` under `Dockerfile Path`
+ ![dockersetting](https://github.com/user-attachments/assets/ba1e469e-3240-4a57-9dad-bac740fea160)
  - Trigger a manual deployment
