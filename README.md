@@ -44,7 +44,7 @@ This project was built using the default NET 8 ServiceStack template.  Download 
 - `dotnet run`
 
 ### Docker
-- There is a provided `Dockerfile` in the solution that was created for deployment
+- There is a provided [Dockerfile](https://github.com/Siliconrob/calamansi/blob/main/Dockerfile) in the solution that was created for deployment
 
 ## Render Deployment
 
