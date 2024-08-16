@@ -6,6 +6,11 @@ namespace calamansi.ServiceModel;
 [Route("/api/countries/{code}")]
 public class Countries : PagedRequest, IGet, IReturn<CountriesResponse>
 {
+    [ApiMember(Name = "code",
+        Description = "Search by country code: default is (empty), in OpenAPI interactive fill with `\"\"`",
+        ParameterType = "path",
+        DataType = "string"
+    )]
     public string Code { get; set; } = "";
 }
 

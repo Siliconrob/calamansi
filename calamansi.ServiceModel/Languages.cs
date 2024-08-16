@@ -6,7 +6,12 @@ namespace calamansi.ServiceModel;
 [Route("/api/languages/{id}")]
 public class Languages : PagedRequest, IGet, IReturn<LanguagesResponse>
 {
-    public string Id { get; set; }
+    [ApiMember(Name = "id",
+        Description = "Search by language id: default is (empty), in OpenAPI interactive fill with `\"\"`",
+        ParameterType = "path",
+        DataType = "string"
+    )]
+    public string Id { get; set; } = "";
 }
 
 public class LanguagesResponse
