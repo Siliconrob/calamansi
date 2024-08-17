@@ -11,8 +11,8 @@ public class RegionsServices : Service
     {
         var sorter = new PageParams
         {
-            SortBy = request.Sort_By,
-            SortDesc = request.Sort_Desc
+            SortBy = request.SortBy,
+            SortDesc = request.SortDesc
         };
         var countries = await RequestProxy.GetCountries(Cache);
         if (!string.IsNullOrWhiteSpace(request.Id))

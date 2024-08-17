@@ -37,7 +37,7 @@ public class SortedRequest
         IsRequired = false
     )]
     [DataMember(Name = "sort_by")]
-    public string Sort_By { get; set; } = "";
+    public string SortBy { get; set; } = "";
     [ApiMember(Name = "sort_desc",
         Description = "Sort results descending: default is (false)",
         ParameterType = "query",
@@ -45,5 +45,5 @@ public class SortedRequest
         IsRequired = false
     )]
     [DataMember(Name = "sort_desc")]
-    public bool Sort_Desc { get; set; }
+    public bool SortDesc { get; set; }
 }
