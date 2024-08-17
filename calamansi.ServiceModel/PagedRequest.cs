@@ -1,4 +1,5 @@
-﻿using ServiceStack;
+﻿using System.Runtime.Serialization;
+using ServiceStack;
 
 namespace calamansi.ServiceModel;
 
@@ -35,13 +36,14 @@ public class SortedRequest
         DataType = "string",
         IsRequired = false
     )]
-    [QueryDataField(Field = "sort_by")]
+    [DataMember(Name = "sort_by")]
     public string Sort_By { get; set; } = "";
     [ApiMember(Name = "sort_desc",
-        Description = "Sort results descending: default is (true)",
+        Description = "Sort results descending: default is (false)",
         ParameterType = "query",
         DataType = "boolean",
         IsRequired = false
     )]
-    public bool Sort_Desc { get; set; } = true;
+    [DataMember(Name = "sort_desc")]
+    public bool Sort_Desc { get; set; }
 }
