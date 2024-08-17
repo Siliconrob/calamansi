@@ -14,5 +14,7 @@ public class AppHost() : AppHostBase("calamansi"), IHostingStartup
         // Configure ServiceStack, Run custom logic after ASP.NET Core Startup
         SetConfig(new HostConfig {
         });
+        ConfigurePlugin<UiFeature>(feature => 
+            feature.Info.BrandIcon = new ImageInfo { Uri = "/logo.svg", Cls = "w-8 h-8 mr-1" });
     }
 }
