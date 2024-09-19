@@ -12,10 +12,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.8" />
-    <PackageReference Include="ServiceStack" Version="8.*" />
-    <PackageReference Include="ServiceStack.AspNetCore.OpenApi" Version="8.3.0" />
+    <PackageReference Include="ServiceStack" Version="8.4.0" />
+    <PackageReference Include="ServiceStack.AspNetCore.OpenApi" Version="8.4.0" />
     <PackageReference Include="ServiceStack.Extensions" Version="8.*" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
   </ItemGroup>
 
   <ItemGroup>
